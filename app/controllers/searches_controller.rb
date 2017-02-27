@@ -4,7 +4,13 @@ class SearchesController < ApplicationController
 
   def create
     @search = Search.create!(search_params.merge(user_id: params[:user_id]))
-
+    @user = User.find(params[:user_id])
+    @user.posts.each do |post|
+      if post.text.include? @search.search_terms
+        Result.create(user_id: params[:user_id],search_id: @search.id,post_id: post.id)
+      end
+    end
+    
   end
 
   def new
