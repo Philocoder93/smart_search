@@ -1,2 +1,7 @@
 <h1>Posts#create</h1>
 <p>Find me in app/views/posts/create.html.erb</p>
+
+<h1> congratulations! you created a new page with the title </h1>
+<h1> <%= @new_post.title %> </h1>
+<%= link_to 'New Search', new_user_search_path(current_user) %>
+<%= link_to 'See all your posts', user_posts_path(current_user) %>

@@ -3,9 +3,12 @@ class SearchesController < ApplicationController
   end
 
   def create
+    @search = Search.create!(search_params.merge(user_id: params[:user_id]))
+
   end
 
   def new
+    @new_search = Search.new
   end
 
   def edit
@@ -18,5 +21,10 @@ class SearchesController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+  def search_params
+      params.require(:search).permit(:search_terms)
   end
 end

@@ -1,2 +1,6 @@
 <h1>Posts#index</h1>
 <p>Find me in app/views/posts/index.html.erb</p>
+<% current_user.posts.each do |pos| %>
+  <h1> <%= pos.title %> </h1>
+  <%= link_to 'see this post', [current_user, pos] %>
+<% end %>
