@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+  def start
+    if current_user
+      redirect_to new_user_search_path(current_user)
+    end
+  end
+
   def index
   end
 
