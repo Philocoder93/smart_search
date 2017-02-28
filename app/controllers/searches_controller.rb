@@ -16,8 +16,15 @@ class SearchesController < ApplicationController
     @search = Search.create!(search_params.merge(user_id: params[:user_id]))
     @user = User.find(params[:user_id])
     @user.posts.each do |post|
+      number = 0
       if post.text.include? @search.search_terms
-        Result.create(user_id: params[:user_id],search_id: @search.id,post_id: post.id)
+        @text = post.text.split(" ")
+        @text.each do |word|
+          if word.include? @search.search_terms
+            number += 1
+          end
+        end
+        Result.create(user_id: params[:user_id], search_id: @search.id, post_id: post.id, score: number.to_f )
       end
     end
     redirect_to user_search_path(current_user, @search)

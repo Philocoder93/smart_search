@@ -2,7 +2,9 @@
 
 <% current_user.posts.each do |pos| %>
   <h1> title: <%= pos.title %> </h1>
-  <%= link_to 'Inspect this post', [current_user, pos] %>
-  <%= link_to 'Delete this post', [current_user, pos], method: :delete %>
-  <%= link_to 'Update this post', edit_user_post_path(current_user, pos) %>
+  <ul>
+    <li><%= link_to 'Inspect this post', [current_user, pos] %></li>
+    <li><%= link_to 'Delete this post', [current_user, pos], method: :delete %></li>
+    <li><%= link_to 'Update this post', edit_user_post_path(current_user, pos) %></li>
+  </ul>
 <% end %>

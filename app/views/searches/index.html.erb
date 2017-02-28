@@ -3,6 +3,7 @@
 <%= link_to 'clear search history', searches_delete_all_path %>
 
 <% @searches.each do |ser| %>
+  <h5> Search ID: <%= ser.id %> </h5>
   <h5> Search Terms: <%= ser.search_terms %> </h5>
   <h5> Created At: <%= ser.created_at %> </h5>
   <%= link_to 'Inspect this search', [current_user, ser] %>

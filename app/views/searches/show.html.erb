@@ -1,7 +1,10 @@
 <h1> results for search with these search words: </h1>
 <h3> <%= @search.search_terms %> </h3>
-<br> 
-<% @search.posts.each do |pos| %>
-  <h4> title: <%= pos.title %> </h4>
-  <h6> text: <%= pos.text %> </h6>
+<br>
+
+<% search = @search.results.sort_by { |m| m.score } %>
+<% search.reverse! %>
+<% search.each do |res| %>
+  <h4> title: <%= res.post.title %> </h4>
+  <h6> text: <%= res.post.text %> </h6>
 <% end %>
