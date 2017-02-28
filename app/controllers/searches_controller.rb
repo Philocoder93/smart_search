@@ -1,5 +1,6 @@
 class SearchesController < ApplicationController
   def index
+    @searches = Search.all
   end
 
   def create
@@ -10,7 +11,7 @@ class SearchesController < ApplicationController
         Result.create(user_id: params[:user_id],search_id: @search.id,post_id: post.id)
       end
     end
-    
+
   end
 
   def new
@@ -21,6 +22,7 @@ class SearchesController < ApplicationController
   end
 
   def show
+    @search = Search.find(params[:id])
   end
 
   def update

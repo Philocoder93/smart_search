@@ -2,6 +2,7 @@
 <p>Find me in app/views/searches/new.html.erb</p>
 <%= link_to 'new post', new_user_post_path(current_user) %>
 <%= link_to 'see all your posts', user_posts_path(current_user) %>
+<%= link_to 'see all your searches', user_searches_path(current_user) %>
 
 
 <%= form_for [current_user, @new_search] do |f| %>
