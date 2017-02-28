@@ -4,4 +4,5 @@
 <% @searches.each do |ser| %>
   <h1> <%= ser.search_terms %> </h1>
   <%= link_to 'inspect this search', [current_user, ser] %>
+  
 <% end %>

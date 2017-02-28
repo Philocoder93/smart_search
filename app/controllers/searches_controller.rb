@@ -1,6 +1,15 @@
 class SearchesController < ApplicationController
+  before_filter :security
+
+  def security
+    unless user_signed_in?
+      flash[:alert] = "You must be logged in to access this section"
+      redirect_to root_path
+    end
+  end
+
   def index
-    @searches = Search.all
+    @searches = current_user.searches
   end
 
   def create

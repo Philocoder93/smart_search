@@ -3,4 +3,6 @@
 <% current_user.posts.each do |pos| %>
   <h1> <%= pos.title %> </h1>
   <%= link_to 'see this post', [current_user, pos] %>
+  <%= link_to 'delete this post', [current_user, pos], method: :delete %>
+  <%= link_to 'update this post', edit_user_post_path(current_user, pos) %>
 <% end %>

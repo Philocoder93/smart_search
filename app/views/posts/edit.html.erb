@@ -1,2 +1,9 @@
 <h1>Posts#edit</h1>
 <p>Find me in app/views/posts/edit.html.erb</p>
+<%= form_for [current_user, @post] do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :text %>
+  <%= f.text_field :text %>
+  <%= f.submit 'Submit' %>
+<% end %>

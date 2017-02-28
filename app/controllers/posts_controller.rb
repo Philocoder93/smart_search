@@ -1,4 +1,13 @@
 class PostsController < ApplicationController
+  before_filter :security
+
+  def security
+    unless user_signed_in?
+      flash[:alert] = "You must be logged in to access this section"
+      redirect_to root_path
+    end
+  end
+
   def index
 
   end
@@ -13,6 +22,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
   end
 
   def show
@@ -20,9 +30,15 @@ class PostsController < ApplicationController
   end
 
   def update
+    @post = Post.find(params[:id])
+    @post.update(post_params)
+    redirect_to root_path
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to root_path
   end
 
   private
