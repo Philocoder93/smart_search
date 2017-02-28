@@ -14,7 +14,7 @@ class PostsController < ApplicationController
 
   def create
     @new_post = Post.create!(post_params.merge(user_id: params[:user_id]))
-
+    redirect_to user_posts_path(current_user)
   end
 
   def new
@@ -38,7 +38,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to root_path
+    redirect_to user_posts_path(current_user)
   end
 
   private

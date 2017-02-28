@@ -1,7 +1,7 @@
-<h1>Searches#show</h1>
-<p>Find me in app/views/searches/show.html.erb</p>
-<h1> <%= @search.search_terms %> </h1>
+<h1> results for search with these search words: </h1>
+<h3> <%= @search.search_terms %> </h3>
+<br> 
 <% @search.posts.each do |pos| %>
-  <h1> <%= pos.title %> </h1>
-  <h1> <%= pos.text %> </h1>
+  <h4> title: <%= pos.title %> </h4>
+  <h6> text: <%= pos.text %> </h6>
 <% end %>

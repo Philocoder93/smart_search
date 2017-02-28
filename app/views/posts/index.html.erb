@@ -1,8 +1,8 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h1>Here Are All your posts</h1>
+
 <% current_user.posts.each do |pos| %>
-  <h1> <%= pos.title %> </h1>
-  <%= link_to 'see this post', [current_user, pos] %>
-  <%= link_to 'delete this post', [current_user, pos], method: :delete %>
-  <%= link_to 'update this post', edit_user_post_path(current_user, pos) %>
+  <h1> title: <%= pos.title %> </h1>
+  <%= link_to 'Inspect this post', [current_user, pos] %>
+  <%= link_to 'Delete this post', [current_user, pos], method: :delete %>
+  <%= link_to 'Update this post', edit_user_post_path(current_user, pos) %>
 <% end %>

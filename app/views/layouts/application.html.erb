@@ -7,7 +7,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <p class="notice"><%= notice %></p>
+    <!-- <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <% if !current_user %>
       <%= link_to "Sign up", new_user_registration_path %>
@@ -15,10 +15,37 @@
     <% else %>
       <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
         <%= current_user.email %>
-    <% end %>
+    <% end %> -->
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <% if notice %>
+        <p class="notice"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert"><%= alert %></p>
+      <% end %>
+      <% if !current_user %>
+        <p> <%= link_to "Sign up", new_user_registration_path %> </p>
+        <p> <%= link_to "Sign in", new_user_session_path %> </p>
+      <% else %>
+        <p> <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> </p>
+        <p> <%= current_user.email %> </p>
+      <% end %>
+    </header>
+    <div class='content-wrapper'>
+      <%= yield %>
+    </div>
+    <footer>
+      <% if current_user %>
+        <p> <%= link_to 'New Search', new_user_search_path(current_user) %> </p>
+        <p> <%= link_to 'All Searches', user_searches_path(current_user) %> </p>
+        <p> <%= link_to 'New Post', new_user_post_path(current_user) %> </p>
+        <p> <%= link_to 'All Posts', user_posts_path(current_user) %> </p>
+      <% end %>
+    </footer>
+
+
   </body>
 </html>

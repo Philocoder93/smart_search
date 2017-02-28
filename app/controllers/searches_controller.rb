@@ -20,7 +20,7 @@ class SearchesController < ApplicationController
         Result.create(user_id: params[:user_id],search_id: @search.id,post_id: post.id)
       end
     end
-
+    redirect_to user_search_path(current_user, @search)
   end
 
   def new
