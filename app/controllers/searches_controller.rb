@@ -34,10 +34,10 @@ class SearchesController < ApplicationController
     @search = Search.find(params[:id])
   end
 
-  def update
-  end
-
-  def destroy
+  def delete_all
+    current_user.searches.destroy_all
+    flash[:alert] = "Don't worry, your secret is safe with us."
+    redirect_to root_path
   end
 
   private

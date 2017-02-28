@@ -1,8 +1,10 @@
 <h1>Searches#index</h1>
 <p>Find me in app/views/searches/index.html.erb</p>
 
+<%= link_to 'clear search history', searches_delete_all_path %>
+
 <% @searches.each do |ser| %>
   <h1> <%= ser.search_terms %> </h1>
   <%= link_to 'inspect this search', [current_user, ser] %>
-  
+
 <% end %>
