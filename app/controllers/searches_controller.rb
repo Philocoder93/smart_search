@@ -15,15 +15,20 @@ class SearchesController < ApplicationController
   def create
     @search = Search.create!(search_params.merge(user_id: params[:user_id]))
     @user = User.find(params[:user_id])
+    terms = @search.search_terms.split(" ")
     @user.posts.each do |post|
       number = 0
-      if post.text.include? @search.search_terms
-        @text = post.text.split(" ")
-        @text.each do |word|
-          if word.include? @search.search_terms
-            number += 1
+      terms.each do |trm|
+        if post.text.include? trm
+          @text = post.text.split(" ")
+          @text.each do |word|
+            if word.include? trm
+              number += 1
+            end
           end
         end
+      end
+      if number != 0
         Result.create(user_id: params[:user_id], search_id: @search.id, post_id: post.id, score: number.to_f )
       end
     end
