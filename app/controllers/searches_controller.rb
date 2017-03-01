@@ -3,7 +3,7 @@ class SearchesController < ApplicationController
 
   def security
     unless user_signed_in?
-      flash[:alert] = "You must be logged in to access this section"
+      flash[:alert] = "You must log in to access the site"
       redirect_to root_path
     end
   end

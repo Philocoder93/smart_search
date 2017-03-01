@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   get 'searches_delete_all' => 'searches#delete_all'
 
-  resources :users do
+  resources :users, :except => [:edit, :destroy, :index, :new, :create, :show, :update, :destroy] do
     resources :posts
-    resources :searches
+    resources :searches, :except => [:edit, :destroy]
   end
 end
