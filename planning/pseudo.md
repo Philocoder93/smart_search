@@ -1,4 +1,5 @@
 <!-- This is the pseudo for the basic search engine logic -->
+<!--ND: This is a very thoughtful look into your process.  -->
 
 1. When the user submits a search what should happen is that an object of the class 'search' should be created. This object should have several search terms stored as an array of strings in the terms key.
 2. Next, the computer should iterate over each of the Users 'Post' objects. Each of these objects should have their text content stored as an array of strings in the text array. (This array is created by taking a single string and running the .split(" ") method on it. This allows us to check the text of an article word by word using the cover method and determine if it is the same word as one of the search terms.) The computer should check each search term against the text of each article. The first time that the computer finds a match for a particular search term in a particular article it should create a new column in the result table storing both the id of the search and the id of the post as well as a float denoting the score of the particular result (see the extra thoughts about logic)
