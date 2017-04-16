@@ -22,6 +22,14 @@ footer {
   align-items: center;
   background-color: #B4CDCD;
 }
+main {
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+}
+aside {
+  float: right;
+}
 .content-wrapper {
   width: 400px;
   min-height: 500px;

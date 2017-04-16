@@ -34,18 +34,23 @@
         <p> <%= current_user.email %> </p>
       <% end %>
     </header>
-    <div class='content-wrapper'>
-      <%= yield %>
-    </div>
+    <main>
+      <div class='content-wrapper'>
+        <%= yield %>
+      </div>
+      <aside>
+        <% if current_user %>
+          <ul>
+            <li> <%= link_to 'New Search', new_user_search_path(current_user) %> </li>
+            <li> <%= link_to 'All Searches', user_searches_path(current_user) %> </li>
+            <li> <%= link_to 'New Post', new_user_post_path(current_user) %> </li>
+            <li> <%= link_to 'All Posts', user_posts_path(current_user) %> </li>
+          </ul>
+        <% end %>
+      </aside>
+    </main>
     <footer>
-      <% if current_user %>
-        <p> <%= link_to 'New Search', new_user_search_path(current_user) %> </p>
-        <p> <%= link_to 'All Searches', user_searches_path(current_user) %> </p>
-        <p> <%= link_to 'New Post', new_user_post_path(current_user) %> </p>
-        <p> <%= link_to 'All Posts', user_posts_path(current_user) %> </p>
-      <% end %>
     </footer>
-
 
   </body>
 </html>
