@@ -40,7 +40,7 @@
       </div>
       <aside>
         <% if current_user %>
-          <ul>
+          <ul class="nav">
             <li> <%= link_to 'New Search', new_user_search_path(current_user) %> </li>
             <li> <%= link_to 'All Searches', user_searches_path(current_user) %> </li>
             <li> <%= link_to 'New Post', new_user_post_path(current_user) %> </li>

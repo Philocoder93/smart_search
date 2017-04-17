@@ -1,10 +1,13 @@
-<h1> results for search with these search words: </h1>
-<h3> <%= @search.search_terms %> </h3>
-<br>
-
-<% search = @search.results.sort_by { |m| m.score } %>
-<% search.reverse! %>
-<% search.each do |res| %>
-  <h4> title: <%= res.post.title %> </h4>
-  <h6> text: <%= res.post.text %> </h6>
-<% end %>
+<article class="search-inspect">
+  <h3> Search ID: <%= @search.id %> </h3>
+  <h3> Search terms: <%= @search.search_terms %> </h3>
+  <ul>
+  <% search = @search.results.sort_by { |m| m.score } %>
+  <% search.reverse! %>
+  <% search.each do |res| %>
+    <li> Title: <%= res.post.title %> </li>
+    <li> Text: <%= res.post.text %> </li>
+    <br>
+  <% end %>
+  </ul>
+</article>

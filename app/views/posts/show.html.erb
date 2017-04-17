@@ -1,6 +1,5 @@
-<h1>Inspecting <%= @post.title %> </h1>
-<br>
-
-<h1> text: <%= @post.text %> </h1>
-
-<p> <%= link_to 'Back to all posts', user_posts_path(current_user)%> </p>
+<article class="post-inspect">
+  <h1><%= @post.title %></h1>
+  <p> <%= @post.text %> </p>
+  <%= link_to 'Back to all posts', user_posts_path(current_user)%>
+</article>
