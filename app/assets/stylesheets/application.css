@@ -73,11 +73,11 @@ aside {
   margin: 25px;
   border: 0px;
   display: block;
-  height: 50px;
+  min-height: 50px;
 }
 .post li {
   width: inherit;
-  height: 50px;
+  min-height: 50px;
   list-style-type: none;
 }
 .post a {
