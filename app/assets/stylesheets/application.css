@@ -114,8 +114,18 @@ aside {
 }
 .search li {
   width: inherit;
-  height: 50px;
+  min-height: 50px;
   list-style-type: none;
+}
+.search a {
+  display: block;
+  width: inherit;
+  min-height: inherit;
+  text-decoration: none;
+  color: black;
+}
+.search a:hover {
+  background-color: white;
 }
 .post-inspect {
   width: 600px;
@@ -147,12 +157,22 @@ aside {
 .search-inspect * {
   list-style-type: none;
 }
-.search-inspect ul {
-
+.clear-search {
+  min-width: 200px;
+  min-height: 50px;
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+  margin-bottom: 25px;
+  background-color: #B4CDCD;
 }
-.search-inspect a {
-
+.clear-search a {
+  display: block;
+  min-width: inherit;
+  min-height: inherit;
+  text-decoration: none;
+  color: black;
 }
-.search-inspect a:hover {
-
+.clear-search a:hover {
+  background-color: white;
 }

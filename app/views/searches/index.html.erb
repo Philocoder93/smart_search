@@ -1,6 +1,6 @@
 <h1>All Searches</h1>
 
-<%= link_to 'clear search history', searches_delete_all_path %>
+<div class="clear-search"><%= link_to 'clear search history', searches_delete_all_path %></div>
 
 <% @searches.each do |ser| %>
   <article class="search">
